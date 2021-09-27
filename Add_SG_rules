@@ -19,7 +19,7 @@ request.set_Priority("1")
 request.set_Description("test")
 
 #Security Group List
-sg_lst = ['sg-test']
+sg_lst = ['sg-test','sg-test0']
 lst_p = ['20/22','80/80','443/443']
 
 #For Loop to add rules
