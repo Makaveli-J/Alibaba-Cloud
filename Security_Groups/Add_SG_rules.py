@@ -29,6 +29,3 @@ for i in lst:
         request.set_SecurityGroupId(i)
         response = client.do_action_with_exception(request)
         print(str(response, encoding='utf-8'), i, p)
-
-
-#test GitHub 10/13
