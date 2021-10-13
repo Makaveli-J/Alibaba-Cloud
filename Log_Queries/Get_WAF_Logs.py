@@ -41,6 +41,7 @@ custom_query = ''
 
 query_selection = {1: query1, 2: query2, 3: query3, 4: query4, 5: custom_query}
 
+print('Select from the following options:')
 print('1. Daily Total Requests')
 print('2. Daily Blocked Requests')
 print('3. Top 10 Source IP')
