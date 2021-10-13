@@ -41,7 +41,12 @@ custom_query = ''
 
 query_selection = {1: query1, 2: query2, 3: query3, 4: query4, 5: custom_query}
 
-choice_made = int(input('test: '))
+print('1. Daily Total Requests')
+print('2. Daily Blocked Requests')
+print('3. Top 10 Source IP')
+print('4. Top 10 Blocked Source IP')
+print('5. Custom Query')
+choice_made = int(input())
 
 client = LogClient('cn-hangzhou.log.aliyuncs.com', os.environ['ACCESS_KEY_ID'], os.environ['ACCESS_KEY_SECRET'])
 
