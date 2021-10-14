@@ -13,8 +13,8 @@ except:
     try:
         from_time = time.mktime(time.strptime(from_time, '%m/%d/%Y %H:%M:%S'))
     except:
-       print('Invalid Time Format')
-       exit()
+        print('Invalid Time Format')
+        exit()
 
 print('****************************')
 
@@ -26,8 +26,8 @@ except:
     try:
         to_time = time.mktime(time.strptime(to_time, '%m/%d/%Y %H:%M:%S'))
     except:
-       print('Invalid Time Format')
-       exit()
+        print('Invalid Time Format')
+        exit()
 
 print('****************************')
 
