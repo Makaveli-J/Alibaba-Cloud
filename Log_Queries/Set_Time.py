@@ -2,8 +2,9 @@ import time
 
 
 def get_time() -> tuple:
-    from_time = str(
-        input('Please set start time in the following format\nmm/dd/yyyy or mm/dd/yyyy HH:MM:SS\nStart Time: '))
+    print('Please set start time in the following format')
+    print('mm/dd/yyyy or mm/dd/yyyy HH:MM:SS (00:00:00 by default)')
+    from_time = str(input('Start Time: '))
 
     try:
         from_time = time.mktime(time.strptime(from_time, '%m/%d/%Y'))
@@ -16,7 +17,9 @@ def get_time() -> tuple:
 
     print('****************************')
 
-    to_time = str(input('Please set end time in the following format\nmm/dd/yyyy or mm/dd/yyyy HH:MM:SS\nEnd Time: '))
+    print('Please set end time in the following format')
+    print('mm/dd/yyyy or mm/dd/yyyy HH:MM:SS (00:00:00 by default)')
+    to_time = str(input('End Time: '))
 
     try:
         to_time = time.mktime(time.strptime(to_time, '%m/%d/%Y'))
