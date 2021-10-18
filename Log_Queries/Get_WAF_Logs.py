@@ -4,35 +4,15 @@
 from aliyun.log import LogClient, LogItem, GetLogsRequest, IndexConfig
 import time
 import os
+import Set_Time
 
-from_time = str(input('Please set start time in the following format\nmm/dd/yyyy or mm/dd/yyyy HH:MM:SS\nStart Time: '))
+# set time range for the log query
+time_range = Set_Time.get_time()
 
-try:
-    from_time = time.mktime(time.strptime(from_time, '%m/%d/%Y'))
-except:
-    try:
-        from_time = time.mktime(time.strptime(from_time, '%m/%d/%Y %H:%M:%S'))
-    except:
-        print('Invalid Time Format')
-        exit()
+from_time = time_range[0]
+to_time = time_range[1]
 
-print('****************************')
-
-to_time = str(input('Please set end time in the following format\nmm/dd/yyyy or mm/dd/yyyy HH:MM:SS\nEnd Time: '))
-
-try:
-    to_time = time.mktime(time.strptime(to_time, '%m/%d/%Y'))
-except:
-    try:
-        to_time = time.mktime(time.strptime(to_time, '%m/%d/%Y %H:%M:%S'))
-    except:
-        print('Invalid Time Format')
-        exit()
-
-print('****************************')
-
-print(from_time, to_time)
-
+# define WAF log queries
 query1 = '* | SELECT count(*) AS ctr, date_trunc(\'day\', __time__) AS date0 GROUP BY date0 ORDER BY date0 ASC | FROM'
 query2 = '{* and status: 405} | SELECT count(*) AS ctr, date_trunc(\'day\', __time__) AS date0 GROUP BY date0 ORDER BY date0 ASC | FROM'
 query3 = '* | SELECT real_client_ip, count(*) AS ctr GROUP BY real_client_ip ORDER BY ctr DESC LIMIT 10'
@@ -41,6 +21,7 @@ custom_query = ''
 
 query_selection = {1: query1, 2: query2, 3: query3, 4: query4, 5: custom_query}
 
+# Select log query
 print('Select from the following options:')
 print('1. Daily Total Requests')
 print('2. Daily Blocked Requests')

@@ -1,7 +1,7 @@
 import time
 
 
-def get_input() -> tuple:
+def get_time() -> tuple:
     from_time = str(
         input('Please set start time in the following format\nmm/dd/yyyy or mm/dd/yyyy HH:MM:SS\nStart Time: '))
 
