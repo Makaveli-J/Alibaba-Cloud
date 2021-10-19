@@ -38,6 +38,8 @@ while Validate_Selection.validate_selection(choice_made, first_option, last_opti
     choice_made = input('Invalid input, please try again\n')
     Validate_Selection.validate_selection(choice_made, first_option, last_option)
 
+choice_made = int(choice_made)
+
 client = LogClient('cn-hangzhou.log.aliyuncs.com', os.environ['ACCESS_KEY_ID'], os.environ['ACCESS_KEY_SECRET'])
 
 project_name = 'waf-project-test-cn-hangzhou'
