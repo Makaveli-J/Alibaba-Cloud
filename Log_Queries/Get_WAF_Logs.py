@@ -31,12 +31,9 @@ print('4. Top 10 Blocked Source IP')
 print('5. Custom Query')
 choice_made = input()
 
-first_option = 1
-last_option = 6
-
-while Validate_Selection.validate_selection(choice_made, first_option, last_option) is False:
+while Validate_Selection.validate_selection(choice_made, len(query_selection)+1) is False:
     choice_made = input('Invalid input, please try again\n')
-    Validate_Selection.validate_selection(choice_made, first_option, last_option)
+    Validate_Selection.validate_selection(choice_made, len(query_selection)+1)
 
 choice_made = int(choice_made)
 
